@@ -1,0 +1,4 @@
+nextflow.tencentcloud.omics.executor.TencentCloudOmicsExecutor
+nextflow.tencentcloud.util.CosPathSerializer
+nextflow.tencentcloud.util.CosPathFactory
+nextflow.tencentcloud.metadata.MetadataFactory

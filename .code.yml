@@ -1,0 +1,7 @@
+source:
+  test_source:
+    filepath_regex:
+  auto_generate_source:
+    filepath_regex: ["/plugins/nf-tencentcloud/src/main/nextflow/tencentcloud/omics/client/.*"]
+  third_party_source:
+    filepath_regex:

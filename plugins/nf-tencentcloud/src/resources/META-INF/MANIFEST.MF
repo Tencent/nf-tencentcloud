@@ -1,0 +1,6 @@
+Manifest-Version: 1.0
+Plugin-Class: nextflow.tencentcloud.TencentCloudPlugin
+Plugin-Id: nf-tencentcloud
+Plugin-Version: 2.0.0
+Plugin-Provider: Tencent
+Plugin-Requires: >=23.10.1

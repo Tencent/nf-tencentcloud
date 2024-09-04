@@ -1,0 +1,61 @@
+plugins {
+    // Apply the groovy plugin to add support for Groovy
+    id 'io.nextflow.groovy-library-conventions'
+    id 'idea'
+}
+
+group = 'io.nextflow'
+// DO NOT SET THE VERSION HERE
+// THE VERSION FOR PLUGINS IS DEFINED IN THE `/resources/META-INF/MANIFEST.NF` file
+
+idea {
+    module.inheritOutputDirs = true
+}
+
+repositories {
+    mavenCentral()
+    maven { url = 'https://jitpack.io' }
+    maven { url = 'https://s3-eu-west-1.amazonaws.com/maven.seqera.io/releases' }
+    maven { url = 'https://s3-eu-west-1.amazonaws.com/maven.seqera.io/snapshots' }
+}
+
+sourceSets {
+    main.java.srcDirs = []
+    main.groovy.srcDirs = ['src/main']
+    main.resources.srcDirs = ['src/resources']
+    test.groovy.srcDirs = []
+    test.java.srcDirs = []
+    test.resources.srcDirs = []
+}
+
+configurations {
+    // see https://docs.gradle.org/4.1/userguide/dependency_management.html#sub:exclude_transitive_dependencies
+    runtimeClasspath.exclude group: 'org.slf4j', module: 'slf4j-api'
+}
+
+ext{
+    nextflowVersion = '23.10.1'
+}
+
+dependencies {
+    compileOnly "io.nextflow:nextflow:$nextflowVersion"
+    compileOnly 'org.slf4j:slf4j-api:2.0.7'
+    compileOnly 'org.pf4j:pf4j:3.10.0'
+
+    api 'javax.annotation:javax.annotation-api:1.3.2'
+    api 'io.swagger.core.v3:swagger-annotations:2.0.0'
+    api 'com.squareup.okhttp:okhttp:2.7.5'
+    api 'com.squareup.okhttp:logging-interceptor:2.7.5'
+    api 'com.google.code.gson:gson:2.10.1'
+    api 'io.gsonfire:gson-fire:1.8.3'
+//    api 'joda-time:joda-time:2.9.9'
+    api 'org.threeten:threetenbp:1.3.5'
+
+    testImplementation(testFixtures("io.nextflow:nextflow:$nextflowVersion"))
+    testImplementation(testFixtures("io.nextflow:nf-commons:$nextflowVersion"))
+    testImplementation "org.apache.groovy:groovy:4.0.21"
+    testImplementation "org.apache.groovy:groovy-nio:4.0.21"
+
+    implementation 'com.qcloud:cos_api:5.6.221'
+    implementation 'org.ini4j:ini4j:0.5.4'
+}
