@@ -488,10 +488,10 @@ public class CosPath implements Path, TagAwareFile {
         this.contentType = type;
     }
 
-    @Override
-    public void setStorageClass(String storageClass) {
-        this.storageClass = storageClass;
-    }
+//    @Override
+//    public void setStorageClass(String storageClass) {
+//        this.storageClass = storageClass;
+//    }
 
     public List<Tag> getTagsList() {
         if (tags == null) {

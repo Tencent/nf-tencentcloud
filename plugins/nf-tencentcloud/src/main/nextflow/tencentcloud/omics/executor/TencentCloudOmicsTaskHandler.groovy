@@ -80,7 +80,7 @@ class TencentCloudOmicsTaskHandler extends TaskHandler {
                 TaskRun.CMD_ERRFILE,
                 TaskRun.CMD_START,
                 TaskRun.CMD_EXIT,
-                TaskRun.CMD_STAGE,
+//                TaskRun.CMD_STAGE,
                 TaskRun.CMD_TRACE,
                 TaskRun.CMD_ENV,
         ]

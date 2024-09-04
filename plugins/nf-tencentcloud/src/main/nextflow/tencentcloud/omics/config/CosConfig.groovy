@@ -8,7 +8,7 @@ import com.qcloud.cos.http.HttpProtocol
 import com.qcloud.cos.region.Region
 import groovy.transform.CompileStatic
 import groovy.util.logging.Slf4j
-import groovy.yaml.YamlSlurper
+import org.yaml.snakeyaml.Yaml
 import nextflow.Global
 import org.ini4j.Ini
 import org.ini4j.Profile.Section
@@ -69,7 +69,9 @@ class CosConfig {
         if (!file.exists()) {
             return false
         }
-        def yaml = new YamlSlurper().parse(file) as Map<String, Object>
+        Yaml parser = new Yaml()
+
+        def yaml = parser.load(file.text) as Map<String, Object>
 
         this.secretId = yaml['tmpSecretId']
         this.secretKey = yaml['tmpSecretKey']

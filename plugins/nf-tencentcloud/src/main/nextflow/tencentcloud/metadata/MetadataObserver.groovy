@@ -13,6 +13,7 @@ import nextflow.script.WorkflowMetadata
 import nextflow.trace.TraceObserver
 import nextflow.trace.TraceRecord
 import nextflow.util.Duration
+import nextflow.util.KryoHelper
 
 import java.nio.file.Files
 import java.nio.file.Path
@@ -189,6 +190,12 @@ class MetadataObserver extends TimerTask implements TraceObserver {
         asyncMetaMessage("error", trace)
     }
 
+    static Map<String, Object> convertByteArrayToMap(byte[] byteArray) {
+        ByteArrayInputStream bis = new ByteArrayInputStream(byteArray)
+        ObjectInputStream ois = new ObjectInputStream(bis)
+        return (Map<String, Object>) ois.readObject()
+    }
+
     /**
      * Little helper method that save a metadata message as JSON with
      * the current run status, ISO 8601 UTC timestamp, run name and the TraceRecord
@@ -213,7 +220,9 @@ class MetadataObserver extends TimerTask implements TraceObserver {
             message.runId = runId
             message.event = event
             message.utcTime = time
-            message.trace = payload.getStore()
+            // payload.store is private, so we need to deserialize serialized object
+            // once tried reflection, error happened occasionally: java.lang.InternalError: a fault occurred in a recent unsafe memory access operation in compiled Java code
+            message.trace = KryoHelper.deserialize(payload.serialize()) as Map<String, Object>
 
             if (metadata.trace == null) {
                 metadata.trace = new ArrayList()
@@ -225,6 +234,7 @@ class MetadataObserver extends TimerTask implements TraceObserver {
             throw new IllegalArgumentException("Only TraceRecord and Manifest class types are supported: [${payload.getClass().getName()}] $payload")
         newMeta = true
     }
+
 
     protected void writeMeta() {
         if (!newMeta) {
