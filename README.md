@@ -12,11 +12,11 @@ English | [简体中文](./README_ZH.md)
 [![Release](https://img.shields.io/badge/v2.0.0-v?label=realease)](https://github.com/Tencent/nf-tencentcloud/releases/tag/2.0.0)
 [![TencentCos](https://img.shields.io/badge/TencentCos-s?logo=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPHN2ZyAgIHdpZHRoPSIxNnB4IiAgIGhlaWdodD0iMTZweCIgIHZpZXdCb3g9IjAgMCAxNiAxNiIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj4KICAgIDx0aXRsZT7lr7nosaHlrZjlgqgtMTZweDwvdGl0bGU%2BCiAgICA8ZyBpZD0i5a%2B56LGh5a2Y5YKoLTE2cHgiIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPgogICAgICAgIDxnIGlkPSLnvJbnu4QiPgogICAgICAgICAgICA8cmVjdCBpZD0iUmVjdGFuZ2xlLUNvcHkiIGZpbGw9IiM0NDQ0NDQiIG9wYWNpdHk9IjAiIHg9IjAiIHk9IjAiIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiI%2BPC9yZWN0PgogICAgICAgICAgICA8cGF0aCBkPSJNOCwwIEwxLDQuMDAxIEwxLDEyLjAwMSBMOCwxNiBMMTUsMTIuMDAxIEwxNSw0LjAwMSBMOCwwIFogTTQuMDQ2LDQuNTYzIEw4LDIuMzA0IEwxMS45NTMsNC41NjMgTDgsNi44NDUgTDQuMDQ2LDQuNTYzIFogTTksOC41NzggTDEyLjk5OSw2LjI2OCBMMTIuOTk5LDEwLjg0IEw5LDEzLjEyNiBMOSw4LjU3OCBaIE0zLDEwLjg0IEwzLDYuMjY4IEw3LDguNTc4IEw3LDEzLjEyNiBMMywxMC44NCBaIiBpZD0iRmlsbCIgZmlsbD0iI0ZGRkZGRiI%2BPC9wYXRoPgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc%2B&label=run%20with)](https://cloud.tencent.com/product/cos)
 [![TencentOmics](https://img.shields.io/badge/TencentOmics-s?logo=data%3Aimage%2Fpng%3Bbase64%2CiVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAQAAAC1%2BjfqAAAAIGNIUk0AAHomAACAhAAA%2BgAAAIDoAAB1MAAA6mAAADqYAAAXcJy6UTwAAAACYktHRAD%2Fh4%2FMvwAAAAlwSFlzAABYlQAAWJUB2W030wAAAAd0SU1FB%2BgIFgYnAkOH3zYAAAFRSURBVCjPRZExS9txFEWPv7Rqo6QIdZaSTRFFKHZorYagm0umxkKloPkSpVu3QrcOQhEHtS7VTSrZgihBdLJxUAimpYNKRYXUBDwd8o95b3nv3ru88wAQExb9Z0rESWvu2C0AgUZdU6SDt3TSwzwPKXITOTZ72FMvzbmqHjnQ1DFmPFqybnmslpyIlLgh8IwVMgSgnRGS%2FGCZBBAjywqD%2BEn9Ko575q0fHbNs2QGDa%2BqHwAsgD8zxhHUW%2BcMefcxyRx54iRVvfG7CA%2FXMigVnrbpr3JS3lppn1qkCDwD4S414NBP4TRdPqVIA9pniDWkSHHJFknZ%2BBQpAGliiTJJe5shxwQJtpIECjrphxiBO%2B95N9dx3YszXrjuEMR9FWF75Uz1xy5kWqBbqfkvqN3NeWnHkHvX9Pz6r3%2B2xw0X1i22RGQW63bbulIjjVt3zcSPwH3ir7avSxkx9AAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDI0LTA4LTIyVDA2OjM4OjQ0KzAwOjAwUNWOEgAAACV0RVh0ZGF0ZTptb2RpZnkAMjAyNC0wOC0yMlQwNjozODo0NCswMDowMCGINq4AAAAodEVYdGRhdGU6dGltZXN0YW1wADIwMjQtMDgtMjJUMDY6Mzk6MDIrMDA6MDB%2BxUePAAAAAElFTkSuQmCC&label=run%20with)](https://cloud.tencent.com/product/omics)
-[![nf-tencentcloud license](https://img.shields.io/github/license/Tencent/nf-tencentcloud.svg?colorB=58bd9f&style=popout)](https://github.com/Tencent/nf-tencentcloud/blob/master/LICENSE)
+[![nf-tencentcloud license](https://img.shields.io/badge/licence-Apache%202.0-green)](https://github.com/Tencent/nf-tencentcloud/blob/master/LICENSE)
 
 nf-tencentcloud is a nextflow plugin designed to add Tencent Cloud Object storage and Tencent Healthcare Omics Platform executor adaptation support to the nextflow workflow engine. Through this component, it can also implement some detailed function adaptations required by the platform, such as metadata file generation, to ensure the efficient operation and management of the workflow. Its design goal is to extend Tencent Cloud's native support for Nextflow workflows, allowing users to run Nextflow workflows using Tencent Cloud resources in a simple and easy-to-use manner.
 
-we use [Task Execution Schema](https://github.com/ga4gh/task-execution-schemas) (TES) protocol as the protocol for nextflow to dock with the Tencent Healthcare Omics Platform. Compared to the official plugin, we use the  [TES v1.1](https://github.com/ga4gh/task-execution-schemas/releases/tag/v1.1) protocol and utilize some custom fields to adapt to the platform features.
+we use [Task Execution Schema](https://github.com/ga4gh/task-execution-schemas) (TES) protocol as the protocol for nextflow to dock with the Tencent Healthcare Omics Platform. Compared to the official plugin, we utilize some custom fields to adapt to the platform features.
 
 ## Feature
 
@@ -64,7 +64,7 @@ Get the key on the [Tencent Cloud CAM console page](https://console.cloud.tencen
   }
   ```
 
--After the configuration is complete, you can use COS storage anywhere in the process and configuration, such as:
+- After the configuration is complete, you can use COS storage anywhere in the process and configuration, such as:
   ```groovy
   workDir = "cos://test-bucket-1258888888/nextflow/workdir"
   ```
