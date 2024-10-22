@@ -21,7 +21,7 @@ we use [Task Execution Schema](https://github.com/ga4gh/task-execution-schemas) 
 ## Feature
 
 - Supports docking with Tencent Cloud COS object storage, allowing direct dependence on Tencent Cloud files in files and configurations.
-- Supports docking with Tencent Healthcare Omics Platform for quick access to high-performance elastic computing capabilities (For more information about Tencent Health Genomics Platform, please refer to: [Tencent Healthcare Omics Platform](https://tencentcloud.com/product/omics)).
+- Supports docking with Tencent Healthcare Omics Platform for quick access to high-performance elastic computing capabilities (For more information about Tencent Health Genomics Platform, please refer to: [Tencent Healthcare Omics Platform](https://tencentcloud.com/products/omics)).
 
 ## Installation
 
