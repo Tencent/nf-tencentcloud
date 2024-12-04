@@ -171,7 +171,7 @@ public class CosClient {
             throw new RuntimeException(e);
         }
 
-        transferManager.shutdownNow();
+        transferManager.shutdownNow(false);
 
     }
 
