@@ -295,7 +295,8 @@ class TencentCloudOmicsTaskHandler extends TaskHandler {
         // submit the task
         final t = client.createTask(body)
         requestId = t.id
-        log.info("[TencentCloud] Task submitted > $task.name|$task.workDir|$requestId")
+        String targetUriString = task.targetDir.toUriString()
+        log.info("[TencentCloud] Task submitted > $task.name|$task.workDir|$targetUriString|$requestId")
         status = TaskStatus.SUBMITTED
     }
 
@@ -355,6 +356,10 @@ class TencentCloudOmicsTaskHandler extends TaskHandler {
 
         task.outputFilesNames?.each { fileName ->
             body.addOutputsItem(outItem(fileName))
+            TesOutput i = outTargetItem(fileName)
+            if (i != null) {
+                body.addOutputsItem(i)
+            }
         }
 
         body.setName(task.getName())
@@ -427,6 +432,22 @@ class TencentCloudOmicsTaskHandler extends TaskHandler {
         result.url = task.workDir.resolve(fileName).toUriString()
         result.type = TesFileType.FILE
         log.trace "[TencentCloud] Adding OUTPUT file: $result"
+        return result
+    }
+
+    private TesOutput outTargetItem(String fileName) {
+        def result = new TesOutput()
+        if (task.workDir.toUriString() == task.targetDir.toUriString()) {
+            return null
+        }
+        if (task.workDir instanceof CosPath) {
+            result.path = "$WORK_DIR/$fileName"
+        } else {
+            result.path = task.workDir.resolve(fileName).toUriString()
+        }
+        result.url = task.targetDir.resolve(fileName).toUriString()
+        result.type = TesFileType.FILE
+        log.trace "[TencentCloud] Adding OUTPUT Target file: $result"
         return result
     }
 
