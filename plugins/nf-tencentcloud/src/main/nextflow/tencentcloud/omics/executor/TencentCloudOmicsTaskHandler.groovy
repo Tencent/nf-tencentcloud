@@ -309,6 +309,10 @@ class TencentCloudOmicsTaskHandler extends TaskHandler {
         if (scratch) {
             result.put('scratch', scratch)
         }
+        if (task.config.getResourceLabels()?["gpuType"]) {
+            def env = result.get('env') as String ?: ''
+            result.put('env', env + "\nNF_GPU_TYPE=${task.config.getResourceLabels()?["gpuType"]}\nNF_GPU_COUNT=${task.config.getResourceLabels()?["gpuCount"]}\n")
+        }
 
         return result
     }
