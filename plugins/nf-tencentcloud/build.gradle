@@ -57,5 +57,5 @@ dependencies {
     testImplementation "org.apache.groovy:groovy-nio:4.0.21"
 
     implementation 'com.qcloud:cos_api:5.6.221'
-    implementation 'org.ini4j:ini4j:0.5.4'
+    implementation 'org.apache.commons:commons-configuration2:2.12.0'
 }

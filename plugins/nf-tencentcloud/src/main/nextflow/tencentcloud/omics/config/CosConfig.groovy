@@ -10,8 +10,9 @@ import groovy.transform.CompileStatic
 import groovy.util.logging.Slf4j
 import groovy.yaml.YamlSlurper
 import nextflow.Global
-import org.ini4j.Ini
-import org.ini4j.Profile.Section
+import org.apache.commons.configuration2.INIConfiguration;
+import org.apache.commons.configuration2.SubnodeConfiguration;
+import org.apache.commons.configuration2.io.FileHandler
 
 /**
  * Model Tencent cloud configuration settings
@@ -85,19 +86,20 @@ class CosConfig {
         if (!file.exists()) {
             return false
         }
-
-        Ini ini = new Ini(file);
+        INIConfiguration config = new INIConfiguration()
+        FileHandler handler = new FileHandler(config)
+        handler.load(file)
 
         // 访问配置节
-        Section bucket = ini.get(bucket);
+        SubnodeConfiguration bucket  = config.getSection(bucket);
         if (!bucket) {
             return false
         }
 
-        this.secretId = bucket.get("secret_id")
-        this.secretKey = bucket.get("secret_key")
-        this.sessionToken = bucket.get("session_token")
-        this.region = new Region(bucket.get("region") as String)
+        this.secretId = bucket.getString("secret_id")
+        this.secretKey = bucket.getString("secret_key")
+        this.sessionToken = bucket.getString("session_token")
+        this.region = new Region(bucket.getString("region"))
         return true
     }
 
